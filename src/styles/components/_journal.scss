@@ -7,7 +7,7 @@
     color: white;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     padding: 0 10px;
     width: 450px;
 }
@@ -55,4 +55,29 @@
 .journal__entry-picture {
     height: 75px;
     width: 75px;
+}
+
+.journal__entry-body {
+    padding: 10px;
+}
+
+.journal__entry-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.journal__entry-content {
+    font-size: 10px;
+}
+
+.journal__entry-date-box{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+.journal__entry-date-box span{
+    font-size: 12px;
 }
