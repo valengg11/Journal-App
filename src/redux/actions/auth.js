@@ -1,21 +1,19 @@
 import { types } from "../../types/types";
 import { firebase, googleAuthProvider } from "../../firebase/firebaseConfig";
+import { finishLoading, startLoading } from "./ui";
 
-export const startLoginEmailPassword = (email, password) => {
-  return (dispatch) => {
-    setTimeout(() => {
-      dispatch(login(123, "Juli"));
-    }, 3500);
-  };
-};
-
-export const startGoogleLogin = () => {
+export const startRegisterEmailPasswordName = (email, password, name) => {
   return (dispatch) => {
     firebase
       .auth()
-      .signInWithPopup(googleAuthProvider)
-      .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName))
+      .createUserWithEmailAndPassword(email, password)
+      .then(async ({ user }) => {
+        await user.updateProfile({ displayName: name });
+        console.log(user);
+        dispatch(login(user.uid, user.displayName));
+      })
+      .catch((e) => {
+        console.log(e);
       });
   };
 };
@@ -27,5 +25,32 @@ export const login = (uid, displayName) => {
       uid,
       displayName,
     },
+  };
+};
+
+export const startLoginEmailPassword = (email, password) => {
+  return (dispatch) => {
+    dispatch(startLoading());
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(({ user }) => {
+        dispatch(login(user.uid, user.displayName));
+        dispatch(finishLoading());
+      })
+      .catch((e) => { 
+        dispatch(finishLoading());
+      });
+  };
+};
+
+export const startGoogleLogin = () => {
+  return (dispatch) => {
+    firebase
+      .auth()
+      .signInWithPopup(googleAuthProvider)
+      .then(({ user }) => {
+        dispatch(login(user.uid, user.displayName));
+      });
   };
 };

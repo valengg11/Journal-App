@@ -1,18 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import validator from "validator";
 import { removeError, setError } from "../../redux/actions/ui";
+import { startRegisterEmailPasswordName } from "../../redux/actions/auth";
 
 export const RegisterScreen = () => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.ui);
+  const {msgError} = state;
 
   const [values, handleInputChange] = useForm({
     name: "Valentina",
-    email: "valen@gmail.com",
-    password: 1234,
-    password2: 1234,
+    email: "valengg@gmail.com",
+    password: 123456,
+    password2: 123456,
   });
 
   const { name, email, password, password2 } = values;
@@ -20,7 +23,7 @@ export const RegisterScreen = () => {
   const handleResgister = (e) => {
     e.preventDefault();
     if (isFormValid()) {
-    console.log("Formulario correcto");
+      dispatch(startRegisterEmailPasswordName(email, password.toString() , name)) 
     }
   };
 
@@ -31,8 +34,8 @@ export const RegisterScreen = () => {
     } else if (!validator.isEmail(email)) {
       dispatch(setError("Email is not valid"));
       return false;
-    } else if (password.length < 5) {
-      dispatch(setError("Password must be at least 5 characters"));
+    } else if (password.length < 6) {
+      dispatch(setError("Password should be at least 6 characters"));
       return false;
     } else if (password !== password2) {
       dispatch(setError("Passwords doesn`t match each other"));
@@ -48,7 +51,14 @@ export const RegisterScreen = () => {
     <>
       <h3 className="auth__title mb-5">Register</h3>
       <form onSubmit={handleResgister}>
-        <div className="auth__alert-error">Hola mundo</div>
+        {
+          msgError &&
+          (
+            <div className="auth__alert-error">
+              {msgError}
+            </div>
+          )
+        }
         <input
           className="auth__input"
           type="text"

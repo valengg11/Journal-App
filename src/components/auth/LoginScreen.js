@@ -1,9 +1,8 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import {
-  login,
   startGoogleLogin,
   startLoginEmailPassword,
 } from "../../redux/actions/auth";
@@ -11,8 +10,10 @@ import {
 export const LoginScreen = () => {
   const dispatch = useDispatch();
 
+  const { loading } = useSelector((state) => state.ui);
+
   const [values, handleInputChange] = useForm({
-    email: "valengomez@gmail.com",
+    email: "valengg@gmail.com",
     password: "123456",
   });
 
@@ -24,7 +25,7 @@ export const LoginScreen = () => {
     // console.log(email, password);
   };
 
-  const handleLoginGoogle = () => {
+  const handleGoogleLogin = () => {
     dispatch(startGoogleLogin());
   };
 
@@ -49,12 +50,16 @@ export const LoginScreen = () => {
           value={password}
           onChange={handleInputChange}
         />
-        <button className="btn btn-primary btn-block" type="submit">
+        <button
+          className="btn btn-primary btn-block"
+          type="submit"
+          disabled={loading}
+        >
           Login
         </button>
         <div className="auth__social-network">
           <p>Login with social networks</p>
-          <div className="google-btn" onClick={handleLoginGoogle}>
+          <div className="google-btn" onClick={handleGoogleLogin}>
             <div className="google-icon-wrapper">
               <img
                 className="google-icon"
