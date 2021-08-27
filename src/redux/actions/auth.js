@@ -38,7 +38,7 @@ export const startLoginEmailPassword = (email, password) => {
         dispatch(login(user.uid, user.displayName));
         dispatch(finishLoading());
       })
-      .catch((e) => { 
+      .catch((e) => {
         dispatch(finishLoading());
       });
   };
@@ -54,3 +54,16 @@ export const startGoogleLogin = () => {
       });
   };
 };
+
+export const startLogout = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut();
+    dispatch(logout())
+  };
+};
+
+export const logout = () => {
+  return {
+    type: types.logout
+  }
+}
