@@ -8,6 +8,7 @@ import { firebase } from "../firebase/firebaseConfig";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions/auth";
 import { startLoadingNotes } from "../redux/actions/notes";
+import { Loading } from "../components/auth/Loading";
 
 export const AppRouter = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ export const AppRouter = () => {
   }, [dispatch, setCheking, setisLoggedIn]);
 
   if (cheking) {
-    return <h1>Cargando...</h1>;
+    return <Loading/>;
   }
 
   return (

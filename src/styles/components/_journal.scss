@@ -1,8 +1,9 @@
 @media only screen and (max-width: 600px) {
 
-    .journal__sidebar-navbar{
+    .journal__sidebar-navbar {
         align-items: flex-end;
     }
+
     .journal__main-content {
         flex-direction: column;
     }
@@ -11,7 +12,7 @@
         height: 200px;
         width: auto;
         padding-bottom: 10px;
-        overflow: scroll!important;
+        overflow: scroll !important;
     }
 
     div.journal__sidebar-navbar {
@@ -19,7 +20,7 @@
         padding-left: 20px;
         left: 0;
 
-        .btn{
+        .btn {
             margin-right: 20px;
         }
     }
@@ -31,13 +32,14 @@
         align-items: flex-start;
     }
 
-    .journal__entry-picture{
+    .journal__entry-picture {
         display: none;
     }
 
-    .journal__entry{
+    .journal__entry {
         margin-left: auto;
     }
+
     .journal__body .journal__new-entry {
         position: fixed;
         bottom: 10px;
@@ -53,12 +55,15 @@
 
 
     }
+
     .journal__body .journal__new-entry i {
         width: 80%;
     }
-    .journal__new-entry .journal__new-entry-title{
+
+    .journal__new-entry .journal__new-entry-title {
         margin-top: 5px;
     }
+
     .fa-calendar-plus:before {
         font-size: 25px;
     }
@@ -82,7 +87,8 @@
 .journal__body {
     margin-top: 70px;
 }
-.journal__overflow{
+
+.journal__overflow {
     height: auto;
 }
 
@@ -94,14 +100,20 @@
     padding-bottom: 20px;
     background: #363636;
     z-index: 1;
+
+    .btn {
+        margin-left: 40px;
+    }
 }
 
 .journal__sidebar-navbar h3 {
     font-weight: lighter;
 }
-.journal__new-entry-title{
+
+.journal__new-entry-title {
     margin-top: 20px;
 }
+
 .journal__new-entry {
     align-items: center;
     cursor: pointer;
