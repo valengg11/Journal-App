@@ -44,15 +44,13 @@ export const NoteScreen = () => {
             placeholder="What happen today?"
             className="notes__textarea"
             name="body"
+            rows = "5"
             value={body}
             onChange={handleInputChange}
           />
           {note.url && (
             <div className="notes__image">
-              <img
-                src="https://c.stocksy.com/a/eHP500/z9/1288834.jpg"
-                alt="woods"
-              />
+              <img src={note.url} alt="img" />
             </div>
           )}
         </form>
