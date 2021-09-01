@@ -3,12 +3,11 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { activeNote } from "../../redux/actions/notes";
 
-export const JournalEntry = ({ id, date, title, body, url }) => {
+export const JournalEntry = ({ id, date, title, url }) => {
   const dispatch = useDispatch()
   const note = {
     date,
     title,
-    body,
     url,
   }
   const handleEntryClick = () => {
@@ -28,7 +27,6 @@ export const JournalEntry = ({ id, date, title, body, url }) => {
       )}
       <div className="journal__entry-body">
         <p className="journal__entry-title">{title}</p>
-        <p className="journal__entry-content">{body}</p>
       </div>
       <div className="journal__entry-date-box">
         <span>{noteDay.format("dddd")}</span>

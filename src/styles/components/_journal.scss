@@ -1,3 +1,69 @@
+@media only screen and (max-width: 600px) {
+
+    .journal__sidebar-navbar{
+        align-items: flex-end;
+    }
+    .journal__main-content {
+        flex-direction: column;
+    }
+
+    div.journal__sidebar {
+        height: 200px;
+        width: auto;
+        padding-bottom: 10px;
+        overflow: scroll!important;
+    }
+
+    div.journal__sidebar-navbar {
+        width: 100%;
+        padding-left: 20px;
+        left: 0;
+
+        .btn{
+            margin-right: 20px;
+        }
+    }
+
+    .journal__body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .journal__entry-picture{
+        display: none;
+    }
+
+    .journal__entry{
+        margin-left: auto;
+    }
+    .journal__body .journal__new-entry {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: #363636;
+        padding: 10px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 8px;
+        text-align: center;
+        justify-content: flex-end;
+
+
+    }
+    .journal__body .journal__new-entry i {
+        width: 80%;
+    }
+    .journal__new-entry .journal__new-entry-title{
+        margin-top: 5px;
+    }
+    .fa-calendar-plus:before {
+        font-size: 25px;
+    }
+}
+
 .journal__main-content {
     display: flex;
 }
@@ -7,20 +73,35 @@
     color: white;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     padding: 0 10px;
     width: 450px;
+    height: 100vh;
+    overflow: scroll;
+}
+
+.journal__body {
+    margin-top: 70px;
+}
+.journal__overflow{
+    height: auto;
 }
 
 .journal__sidebar-navbar {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    position: fixed;
+    padding-bottom: 20px;
+    background: #363636;
+    z-index: 1;
 }
 
 .journal__sidebar-navbar h3 {
     font-weight: lighter;
 }
-
+.journal__new-entry-title{
+    margin-top: 20px;
+}
 .journal__new-entry {
     align-items: center;
     cursor: pointer;
@@ -38,7 +119,6 @@
 
 .journal__entries {
     flex: 1 1 auto;
-    margin-top: 30px;
     overflow-y: scroll;
 }
 
@@ -60,6 +140,8 @@
 
 .journal__entry-body {
     padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .journal__entry-title {
@@ -71,7 +153,7 @@
     font-size: 10px;
 }
 
-.journal__entry-date-box{
+.journal__entry-date-box {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -80,6 +162,6 @@
     width: 70px;
 }
 
-.journal__entry-date-box span{
+.journal__entry-date-box span {
     font-size: 12px;
 }

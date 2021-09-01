@@ -36,7 +36,7 @@ export const NotesAppBar = () => {
         style={{ display: "none" }}
         onChange={handleFileChange}
       />
-      <div>
+      <div className="notes__appbar-button-container">
         <button onClick={handlePictureClick} className="btn">
           Picture
         </button>
