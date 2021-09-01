@@ -5,7 +5,7 @@ export const NothingSelected = () => {
         <div className='nothing__main-content'>
             <p>Select comething
                 <br/>
-                pr create an entry
+                or create an entry
             </p>
             <i className='far fa-star fa-4x mt-5'></i>
         </div>
