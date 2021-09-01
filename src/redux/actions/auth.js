@@ -2,7 +2,7 @@ import Swal from 'sweetalert2'
 
 import { types } from "../../types/types";
 import { firebase, googleAuthProvider } from "../../firebase/firebaseConfig";
-import { finishLoading, startLoading } from "./ui";
+// import { finishLoading, startLoading } from "./ui";
 import { noteLogout } from './notes';
 
 
@@ -34,16 +34,16 @@ export const login = (uid, displayName) => {
 
 export const startLoginEmailPassword = (email, password) => {
   return (dispatch) => {
-    dispatch(startLoading());
+    // dispatch(startLoading());
     return firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(({ user }) => {
         dispatch(login(user.uid, user.displayName));
-        dispatch(finishLoading());
+        // dispatch(finishLoading());
       })
       .catch((e) => {
-        dispatch(finishLoading());
+        // dispatch(finishLoading());
         Swal.fire('Error', e.message, 'error')
       });
   };
