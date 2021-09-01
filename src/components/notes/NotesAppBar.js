@@ -12,13 +12,14 @@ export const NotesAppBar = () => {
 
   const screenDate = moment(date)
 
-  console.log(date);
   const handleSave = () => {
     dispatch(startSaveNote(active));
   };
+
   const handlePictureClick = () => {
     document.querySelector("#fileSelector").click();
   };
+  
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {

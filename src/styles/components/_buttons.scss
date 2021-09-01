@@ -26,12 +26,12 @@
 }
 
 .btn-danger {
-    background-color: firebrick;
+    background-color: tomato;
 
     transition: background-color .3s ease;
 
     &:hover {
-        background-color: darken($color:firebrick, $amount: 10)
+        background-color: darken($color:tomato, $amount: 10)
     }
 }
 
