@@ -22,12 +22,16 @@ export const notesReducer = (state = initialState, action) => {
     case types.notesUpdated:
       return {
         ...state,
-        notes: state.notes.map(
-          note => note.id === action.payload.id
-          ? action.payload.note
-          : note
-        )
-      }
+        notes: state.notes.map((note) =>
+          note.id === action.payload.id ? action.payload.note : note
+        ),
+      };
+    case types.notesDelete:
+      return {
+        ...state,
+        active: null,
+        notes: state.notes.filter((note) => note.id !== action.payload),
+      };
     default:
       return state;
   }
