@@ -14,7 +14,7 @@ export const Homepage = () => {
         </div>
         <img
           className="homepage__image"
-          src="/images/journal_app.png"
+          src="../../assets/images/journal_app.png"
           alt="logo_journal_app"
         />
     </div>
